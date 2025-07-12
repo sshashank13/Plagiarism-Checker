@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plagiarism Checker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 class="typing-text">📝Plagiarism Checker</h1>
+     
+    <nav>
+      <button onclick="showPage('main')">Check</button>
+      <button onclick="showPage('history')">History</button>
+      <button id="toggle-dark-mode">🌓</button>
+    </nav>
+  </header>
+
+  <main id="mainPage">
+    <section class="upload-section">
+      <h2>📂 Upload Two Text Files</h2>
+      <label>Upload File 1:</label>
+      <input type="file" id="file1" accept=".txt" />
+      <label>Upload File 2:</label>
+      <input type="file" id="file2" accept=".txt" />
+      <button onclick="compareTwoFiles()">Check File Similarity</button>
+    </section>
+
+    <div class="divider">OR</div>
+
+    <section class="input-columns">
+      <div class="text-area-wrapper">
+        <label for="text1">Paste Text 1</label>
+        <textarea id="text1" placeholder="Paste Text 1 here..."></textarea>
+      </div>
+      <div class="text-area-wrapper">
+        <label for="text2">Paste Text 2</label>
+        <textarea id="text2" placeholder="Paste Text 2 here..."></textarea>
+      </div>
+    </section>
+
+    <div class="button-center">
+      <button onclick="compareTextInputs()">Check Text Similarity</button>
+    </div>
+
+    <section class="result" id="resultSection" hidden>
+      <h2>Similarity Result</h2>
+      <p id="resultOutput"></p>
+      <button onclick="downloadReport()">📄 Download Report</button>
+    </section>
+  </main>
+
+  <main id="historyPage" style="display: none;">
+    <section>
+      <h2>🔁 History</h2>
+      <ul id="historyList"></ul>
+    </section>
+  </main>
+
+  <button onclick="scrollToTop()" id="scrollBtn">⬆️</button>
+</body>
+</html>
